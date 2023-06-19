@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exo-twig</title>
+</head>
+
+<body>
+    <h1>exo-twig </h1>
+
+    {% for item in names %}
+    <p>{{item}}</p>
+    {% endfor %}
+
+    {% if names|length >3 %}
+    <p> le tableau names contient plus de 3 noms </p>
+    {% endif %}
+
+
+    {% for item in names %}
+    <ul>
+        <li>{{item}}</li>
+    </ul>
+    {% endfor %}
+
+
+    {% for item in names %}
+    <ul id="navigation">
+        {% for bac in navigation %}
+        <li style="background-color:{{dump(bac.couleur.efefef)}};">{{item}}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+
+
+
+
+
+</body>
+
+</html>
