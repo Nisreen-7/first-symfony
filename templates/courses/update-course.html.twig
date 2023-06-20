@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Course{% endblock %}
+
+{% block body %}
+
+<form action="#" method="post">
+    <h3>{{courses.title}}</h3>
+    <div>
+        <label for="title" class="rounded"> Saisir la label</label>
+        <input type="text" name="title" id="title" class="form-control" value="{{courses.title}}">
+    </div>
+    <div>
+        <label for="subject" class="rounded">Saisir le subject</label>
+        <input type="text" name="subject" id="subject" class="form-control" value="{{courses.subject}}">
+    </div>
+    <div>
+        <label for="content" class="rounded">Saisir le content</label>
+        <textarea type="content" name="content" id="content" class="form-control">{{courses.content}}</textarea>
+    </div>
+    <button class="btn btn-info">UPDATE</button>
+
+</form>
+
+
+{% endblock %}

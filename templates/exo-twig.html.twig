@@ -26,14 +26,11 @@
     {% endfor %}
 
 
-    {% for item in names %}
-    <ul id="navigation">
-        {% for bac in navigation %}
-        <li style="background-color:{{dump(bac.couleur.efefef)}};">{{item}}</li>
+    <ul>
+        {% for item in names %}
+        <li {% if loop.index is odd %} style="background-color: #efefef;" {% endif %}>{{loop.index}} {{item}}</li>
         {% endfor %}
     </ul>
-    {% endfor %}
-
 
 
 

@@ -30,4 +30,11 @@ class FirstController extends AbstractController
         ]);
     }
 
+
+    #[Route("/exemple/{name}")]
+    public function paramExemple(string $name)
+    {
+        return new Response("Bonjour" . $name);
+    }
+
 }

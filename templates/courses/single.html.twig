@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Course - {{courses.title}}{% endblock %}
+
+{% block body %}
+<h1>{{courses.title}} </h1>
+<p>{{courses.subject}}</p>
+<p>{{courses.published|date('d/m/Y')}}</p>
+<p>{{courses.content}}</p>
+<a href="/update-course/{{courses.id}}" class="btn btn-secondary">Modify</a>
+<a href="/remove-course/{{courses.id}}" class="btn btn-danger">Delete</a>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Course{% endblock %}
+
+{% block body %}
+
+<form action="#" method="post" >
+    <h3>Add une nouvelle Course</h3>
+    <div>
+        <label for="title" class="rounded"> Saisir la label</label>
+        <input type="text" name="title" id="title" class="form-control">
+    </div>
+    <div>
+        <label for="subject" class="rounded">Saisir le subject</label>
+        <input type="text" name="subject" id="subject" class="form-control">
+    </div>
+    <div>
+        <label for="content" class="rounded">Saisir le content</label>
+        <textarea type="content" name="content" id="content" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-info">ADD</button>
+
+</form>
+{% if message is defined %}
+<p>{{message}}</p>
+{% endif %}
+
+
+
+
+{% endblock %}
