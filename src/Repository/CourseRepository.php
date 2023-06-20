@@ -39,7 +39,7 @@ class CourseRepository
 
     }
 
-    public function delete(int $id):void
+    public function delete(int $id): void
     {
         $connection = Database::getConnection();
         $query = $connection->prepare("delete from course  where id =:id");
@@ -76,5 +76,19 @@ class CourseRepository
 
         $query->execute();
 
+    }
+
+    public function search(string $term): array
+    {
+        $list = [];
+        $connection = Database::getConnection();
+        $query = $connection->prepare("select * From course where CONCAT(title,content,subject) LIKE :term");
+        $query->bindValue(':term', '%' . $term . '%');
+
+        $query->execute();
+        foreach ($query->fetchAll() as $line) {
+            $list[] = new Course($line['title'], $line['subject'], $line['content'], new \DateTime($line['published']), $line['id']);
+        }
+        return $list;
     }
 }

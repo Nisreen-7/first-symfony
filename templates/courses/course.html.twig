@@ -13,7 +13,9 @@
     </tr>
     {% endfor %}
 </table> #}
-
+{% if courses|length == 0 %}
+<p>No Result found.</p>
+{% endif %}
 <div class="row">
     {% for item in courses %}
     <div class="col-md-3">

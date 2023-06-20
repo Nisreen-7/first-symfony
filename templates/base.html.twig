@@ -16,6 +16,16 @@
 </head>
 
 <body>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">Search</a>
+            <form class="d-flex" role="search" action="/courses">
+                <input class="form-control me-2" type="search" placeholder="Search..." name="search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <div class="container-fluid" width="500px">
         {% block body %}{% endblock %}
     </div>

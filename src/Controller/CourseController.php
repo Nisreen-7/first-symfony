@@ -13,9 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class CourseController extends AbstractController
 {
     #[Route("/courses")]
-    public function index(CourseRepository $repo): Response
+    public function index(CourseRepository $repo , Request $request): Response
     {
-        $data = $repo->findAll();
+
+        if($request->request->has('search')){
+            $data =$repo->search($request->query->get('search'));
+        } else {
+            $data = $repo->findAll();
+
+        }
 
         dump($data);
         // return new Response("Bonjour");
@@ -84,4 +90,6 @@ class CourseController extends AbstractController
         $repo->delete($id);
         return $this->redirect('/courses');
     }
+
+ 
 }
