@@ -13,11 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class CourseController extends AbstractController
 {
     #[Route("/courses")]
-    public function index(CourseRepository $repo , Request $request): Response
+    public function index(CourseRepository $repo, Request $request): Response
     {
 
-        if($request->request->has('search')){
-            $data =$repo->search($request->query->get('search'));
+        if ($request->query->has('search')) {
+            $data = $repo->search($request->query->get('search'));
         } else {
             $data = $repo->findAll();
 
@@ -91,5 +91,5 @@ class CourseController extends AbstractController
         return $this->redirect('/courses');
     }
 
- 
+
 }
